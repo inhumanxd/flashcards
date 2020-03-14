@@ -1,0 +1,28 @@
+{% extends 'Base.html' %}
+
+{% block 'content' %}   
+    <center>
+        {% if my_answer %}    
+        <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
+            {{ my_answer }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endif %}
+        <h1>{{ num1 }} + {{ num2 }}</h1>
+        <br>
+        <form action="{% url 'divide' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+            
+            <input type="text" class="form-control" name="answer" placeholder="Type your answer here...">
+            <input type="hidden" name="old_num1" value="{{num1}}"/>
+            <input type="hidden" name="old_num2" value="{{num2}}"/>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-secondary">Submit</button>
+        </form>
+    
+    </center>
+{% endblock %}
