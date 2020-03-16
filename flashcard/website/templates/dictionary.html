@@ -20,15 +20,16 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-          
+      </center>
         
           {% if output %}
-          <div class="card text-center">
+          <div class="card">
             <div class="card-header">
-               {{word}}
+               <center> {{word}} </center>
             </div>
             <div class="card-body">
               <h5 class="card-title">
+                
                   {% for x in output %}
                   
                   Definition: {{x.definition}}<br>
@@ -43,11 +44,11 @@
               
             </div>
             <div class="card-footer text-muted">
-              Bhavik Brahmbhatt
+              <center> Bhavik Brahmbhatt </center>
             </div>
           </div>
         
           {% endif %}
-    
-    </center>
+    <br>
+   
 {% endblock %}
