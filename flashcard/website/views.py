@@ -40,7 +40,7 @@ def subtract(request):
         if not answer:
             my_answer = "Hey you forgot to enter your answer!"
             color = "danger"
-            return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            return render(request, 'subtract.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
         old_num1 = request.POST['old_num1']
         old_num2 = request.POST['old_num2']
@@ -65,7 +65,7 @@ def multiply(request):
         if not answer:
             my_answer = "Hey you forgot to enter your answer!"
             color = "danger"
-            return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
         old_num1 = request.POST['old_num1']
         old_num2 = request.POST['old_num2']
@@ -90,12 +90,13 @@ def divide(request):
         if not answer:
             my_answer = "Hey you forgot to enter your answer!"
             color = "danger"
-            return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            return render(request, 'divide.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
         old_num1 = request.POST['old_num1']
         old_num2 = request.POST['old_num2']
         correct_answer = int(old_num1) / int(old_num2)
-        if int(answer) == correct_answer:
+        
+        if float(answer) == float(correct_answer):
             my_answer = "Correct! "+ old_num1 + "/" + old_num2 + " = " + str(correct_answer) + "."
             color = "success"
         else:
