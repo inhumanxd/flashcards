@@ -10,6 +10,11 @@
             </button>
         </div>
         {% endif %}
+        <span class="d-block p-2 bg-dark text-white">
+            <center>
+                <h1 class="display-4">Multiplication</h1>
+            </center>
+        </span><br>
         <h1>{{ num1 }} x {{ num2 }}</h1>
         <br>
         <form action="{% url 'multiply' %}" method="POST">
