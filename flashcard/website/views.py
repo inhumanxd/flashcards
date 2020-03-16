@@ -104,3 +104,6 @@ def divide(request):
         return render(request, 'divide.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
     return render(request, 'divide.html', { "num1": num1, "num2": num2, })
+
+def dictionary(request):
+    return render(request, 'dictionary.html', {})
