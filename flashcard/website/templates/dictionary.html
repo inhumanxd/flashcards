@@ -30,7 +30,14 @@
             <div class="card-body">
               <h5 class="card-title">
                   {% for x in output %}
-                  {{x.definition}}<br><br>
+                  
+                  Definition: {{x.definition}}<br>
+                  
+                  {% if x.example %}
+                  Example: {{x.example}}
+                  {% endif %}
+                  
+                  <br><br><br>
                   {% endfor %}
               </h5>
               
