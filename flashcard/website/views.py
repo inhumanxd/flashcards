@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import urbandictionary as ud
 
 # Create your views here.
 def home(request):
@@ -106,4 +107,10 @@ def divide(request):
     return render(request, 'divide.html', { "num1": num1, "num2": num2, })
 
 def dictionary(request):
+    if request.method == "POST":
+        word = request.POST['word']
+        defs = ud.define(word)
+        
+        return render(request, 'dictionary.html', {"word":word, "output":defs})
     return render(request, 'dictionary.html', {})
+    
