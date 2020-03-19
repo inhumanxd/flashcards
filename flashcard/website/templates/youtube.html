@@ -8,9 +8,11 @@
       <p class="lead text-muted">Get the top nine results on YouTube for your query!</p>
         <form method="POST">
           {% csrf_token %}
+          
           <div class="input-group mb-3">
             <input type="text" name="search" class="form-control" aria-label="Username">
-          </div>
+          </div> 
+          
           <p>
             <button type="submit" name="submit" value="search" class="btn btn-primary my-2">YouTube Search</button>
             <button type="submit" name="submit" value="lucky" class="btn btn-primary">I'm Feeling Lucky</button>
