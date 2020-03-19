@@ -1,7 +1,11 @@
 {% extends 'Base.html' %}
 
 
-
+<style>
+  .card{
+    color: black;
+  }
+</style>
 {% block 'content' %}   
     
     <main role="main" class="inner cover">
@@ -29,7 +33,7 @@
     
             <br>
             {% if output %}
-            <div style="color:black" class="card">
+            <div class="card">
               
               <div class="card-header">
                 {{word}} 
@@ -40,7 +44,7 @@
                 {% for x in output %}
                 <BR>
 
-                  <div class="card" style="color:black">
+                  <div class="card">
                     <div class="card-body">
                       Definition: {{x.definition}}<br><br>
                       
@@ -53,7 +57,7 @@
                   </div>    
                 {% endfor %}
                 <br>
-            <div class="card" style="color:black">
+            <div class="card">
               
               <div class="card-footer">
                 Bhavik Brahmbhatt 
