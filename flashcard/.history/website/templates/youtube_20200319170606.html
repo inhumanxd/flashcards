@@ -4,7 +4,7 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1  class="jumbotron-heading">Search YouTube</h1>
+      <h1 style="color:black;" class="jumbotron-heading">Search YouTube</h1>
       <p class="lead text-muted">Get the top nine results on YouTube for your query!</p>
         <form method="POST">
           {% csrf_token %}
@@ -20,7 +20,7 @@
   </section>
   {% if videos %}
   <br>
-  <div class="album py-2 bg-dark">
+  <div class="album py-2 bg-light">
     <div class="container">
       <div class="row">
         {% for video in videos %}

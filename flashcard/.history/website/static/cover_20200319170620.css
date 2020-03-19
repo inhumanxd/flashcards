@@ -43,8 +43,8 @@ body {
 }
 
 .cover-container {
-  /* width: 40em; */
-  /* max-width: 45em; */
+  width: 40em;
+  max-width: 45em;
 }
 input{
   max-width: 35em;
@@ -96,10 +96,10 @@ input{
   }
 }
 
-.card{
-  /* color: black; */
-  /* max-width: 35em; */
-}
+/* .card{
+  color: black;
+  max-width: 35em;
+} */
 
 /*
  * Cover

@@ -43,8 +43,8 @@ body {
 }
 
 .cover-container {
-  /* width: 40em; */
-  /* max-width: 45em; */
+  width: 40em;
+  max-width: 45em;
 }
 input{
   max-width: 35em;

@@ -4,7 +4,7 @@
 
   <section class="jumbotron text-center">
     <div class="container">
-      <h1  class="jumbotron-heading">Search YouTube</h1>
+      <h1 style="color:black;" class="jumbotron-heading">Search YouTube</h1>
       <p class="lead text-muted">Get the top nine results on YouTube for your query!</p>
         <form method="POST">
           {% csrf_token %}
@@ -20,12 +20,12 @@
   </section>
   {% if videos %}
   <br>
-  <div class="album py-2 bg-dark">
+  <div class="album py-2 bg-light">
     <div class="container">
       <div class="row">
         {% for video in videos %}
         <div class="col-md-4">
-          <div class="card text-white bg-dark mb-4 shadow-sm">
+          <div class="card mb-4 shadow-sm">
             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{video.thumbnail}}" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"></img>
             <div class="card-body">
               <p class="card-text">{{ video.title }}</p>
