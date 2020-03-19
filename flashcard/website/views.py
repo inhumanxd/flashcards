@@ -17,31 +17,33 @@ def add(request):
     
     if request.method == "POST":
         answer = request.POST['answer']
+        try:
+            if not answer:
+                my_answer = "Hey you forgot to enter your answer!"
+                color = "danger"
+                return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+                
+            if not answer.isdigit():
+                my_answer = "You're not supposed to enter characters here :("
+                color = "danger"
+                return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+                
 
-        if not answer:
-            my_answer = "Hey you forgot to enter your answer!"
-            color = "danger"
-            return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            old_num1 = request.POST['old_num1']
+            old_num2 = request.POST['old_num2']
             
-        if not answer.isdigit():
-            my_answer = "You're not supposed to enter characters here :("
-            color = "danger"
-            return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
-            
-
-        old_num1 = request.POST['old_num1']
-        old_num2 = request.POST['old_num2']
-        
-        correct_answer = int(old_num1) + int(old_num2)
-        if int(answer) == correct_answer:
-            my_answer = "Correct! "+ old_num1 + "+" + old_num2 + " = " + str(correct_answer) + "."
-            color = "success"
-        else:
-            my_answer = "Incorrect! "+ old_num1 + "+" + old_num2 + " is not " + answer + ". It is " + str(correct_answer) + "."
-            color = "danger"
-        addition.append(answer)
-        times = times + 1
-        return render(request, 'add.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color, "add":addition[times:]})
+            correct_answer = int(old_num1) + int(old_num2)
+            if int(answer) == correct_answer:
+                my_answer = "Correct! "+ old_num1 + "+" + old_num2 + " = " + str(correct_answer) + "."
+                color = "success"
+            else:
+                my_answer = "Incorrect! "+ old_num1 + "+" + old_num2 + " is not " + answer + ". It is " + str(correct_answer) + "."
+                color = "danger"
+            addition.append(answer)
+            times = times + 1
+            return render(request, 'add.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color, "add":addition[times:]})
+        except:
+            return render(request, 'subtract.html', { "my_answer": "Something went wrong :(", "num1": num1, "num2": num2, "color" : "danger"}) 
 
     return render(request, 'add.html', { "num1": num1, "num2": num2, })
 
@@ -86,28 +88,30 @@ def multiply(request):
     num2 = randint(1,10)
     if request.method == "POST":
         answer = request.POST['answer']
+        try:
+            if not answer:
+                my_answer = "Hey you forgot to enter your answer!"
+                color = "danger"
+                return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
-        if not answer:
-            my_answer = "Hey you forgot to enter your answer!"
-            color = "danger"
-            return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            if not answer.isdigit():
+                my_answer = "You're not supposed to enter characters here :("
+                color = "danger"
+                return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+                
+            old_num1 = request.POST['old_num1']
+            old_num2 = request.POST['old_num2']
+            correct_answer = int(old_num1) * int(old_num2)
+            if int(answer) == correct_answer:
+                my_answer = "Correct! "+ old_num1 + "x" + old_num2 + " = " + str(correct_answer) + "."
+                color = "success"
+            else:
+                my_answer = "Incorrect! "+ old_num1 + "x" + old_num2 + " is not " + answer + ". It is " + str(correct_answer) + "."
+                color = "danger"
 
-        if not answer.isdigit():
-            my_answer = "You're not supposed to enter characters here :("
-            color = "danger"
-            return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
-            
-        old_num1 = request.POST['old_num1']
-        old_num2 = request.POST['old_num2']
-        correct_answer = int(old_num1) * int(old_num2)
-        if int(answer) == correct_answer:
-            my_answer = "Correct! "+ old_num1 + "x" + old_num2 + " = " + str(correct_answer) + "."
-            color = "success"
-        else:
-            my_answer = "Incorrect! "+ old_num1 + "x" + old_num2 + " is not " + answer + ". It is " + str(correct_answer) + "."
-            color = "danger"
-
-        return render(request, 'multiply.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            return render(request, 'multiply.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+        except:
+            return render(request, 'subtract.html', { "my_answer": "Something went wrong :(", "num1": num1, "num2": num2, "color" : "danger"}) 
 
     return render(request, 'multiply.html', { "num1": num1, "num2": num2, })
 def divide(request):
@@ -116,29 +120,31 @@ def divide(request):
     num2 = randint(1,10)
     if request.method == "POST":
         answer = request.POST['answer']
+        try:
+            if not answer:
+                my_answer = "Hey you forgot to enter your answer!"
+                color = "danger"
+                return render(request, 'divide.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
-        if not answer:
-            my_answer = "Hey you forgot to enter your answer!"
-            color = "danger"
-            return render(request, 'divide.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
-
-        if not answer.replace('.', '', 1).isdigit():
-            my_answer = "You're not supposed to enter characters here :("
-            color = "danger"
-            return render(request, 'divide.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            if not answer.replace('.', '', 1).isdigit():
+                my_answer = "You're not supposed to enter characters here :("
+                color = "danger"
+                return render(request, 'divide.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+                
+            old_num1 = request.POST['old_num1']
+            old_num2 = request.POST['old_num2']
+            correct_answer = int(old_num1) / int(old_num2)
             
-        old_num1 = request.POST['old_num1']
-        old_num2 = request.POST['old_num2']
-        correct_answer = int(old_num1) / int(old_num2)
-        
-        if float(answer) == float(correct_answer):
-            my_answer = "Correct! "+ old_num1 + "/" + old_num2 + " = " + str(correct_answer) + "."
-            color = "success"
-        else:
-            my_answer = "Incorrect! "+ old_num1 + "/" + old_num2 + " is not " + answer + ". It is " + str(correct_answer) + "."
-            color = "danger"
+            if float(answer) == float(correct_answer):
+                my_answer = "Correct! "+ old_num1 + "/" + old_num2 + " = " + str(correct_answer) + "."
+                color = "success"
+            else:
+                my_answer = "Incorrect! "+ old_num1 + "/" + old_num2 + " is not " + answer + ". It is " + str(correct_answer) + "."
+                color = "danger"
 
-        return render(request, 'divide.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+            return render(request, 'divide.html', { "answer": answer, "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
+        except:
+            return render(request, 'subtract.html', { "my_answer": "Something went wrong :(", "num1": num1, "num2": num2, "color" : "danger"}) 
 
     return render(request, 'divide.html', { "num1": num1, "num2": num2, })
 
