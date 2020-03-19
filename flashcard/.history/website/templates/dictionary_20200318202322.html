@@ -1,0 +1,55 @@
+{% extends 'Base.html' %}
+
+{% block 'content' %}   
+    <center>
+
+        <span class="d-block p-2 bg-dark text-white">
+            <center>
+                <h1 class="display-4">Dictionary</h1>
+            </center>
+        </span>
+        <div class="container">
+            <br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="exampleInputEmail1">Enter a word to search its meaning:</label>
+                <input type="text" class="form-control" placeholder="Enter a word..." name="word">
+                
+                <br>
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+        </div>
+      </center>
+        
+          {% if output %}
+          <div class="card">
+            <div class="card-header">
+               <center> {{word}} </center>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">
+                  
+                  {% for x in output %}
+                  
+                  Definition: {{x}}<br><br>
+                  
+                  {% if x.example %}
+                  Example: {{x.example}}
+                  {% endif %}
+                  
+                  <br><br><br><br>
+                  
+                  {% endfor %}
+              </h5>
+              
+            </div>
+            <div class="card-footer text-muted">
+              <center> Bhavik Brahmbhatt </center>
+            </div>
+          </div>
+        
+          {% endif %}
+    <br>
+   
+{% endblock %}
