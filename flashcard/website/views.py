@@ -23,7 +23,7 @@ def add(request):
             color = "danger"
             return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
             
-        if not answer.isdigit():
+        if not answer.replace('.', '', 1).isdigit():
             my_answer = "You're not supposed to enter characters here :("
             color = "danger"
             return render(request, 'add.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
@@ -59,7 +59,7 @@ def subtract(request):
             color = "danger"
             return render(request, 'subtract.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
-        if not answer.isdigit():
+        if not answer.replace('.', '', 1).isdigit():
             my_answer = "You're not supposed to enter characters here :("
             color = "danger"
             return render(request, 'subtract.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
@@ -90,7 +90,7 @@ def multiply(request):
             color = "danger"
             return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
 
-        if not answer.isdigit():
+        if not answer.replace('.', '', 1).isdigit():
             my_answer = "You're not supposed to enter characters here :("
             color = "danger"
             return render(request, 'multiply.html', { "my_answer": my_answer, "num1": num1, "num2": num2, "color" : color})
