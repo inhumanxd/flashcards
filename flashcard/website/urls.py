@@ -9,4 +9,5 @@ urlpatterns = [
     path('multiply',views.multiply, name="multiply"),
     path('divide',views.divide, name="divide"),
     path('dictionary',views.dictionary, name="dictionary"),
+    path('youtube',views.youtube, name="youtube"),
 ]

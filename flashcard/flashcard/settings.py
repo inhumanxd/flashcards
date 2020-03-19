@@ -124,5 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
+YOUTUBE_DATA_API_KEY = 'AIzaSyAducUAJtpWklUNDJfXXGBJfBOfmFRoz1Y'
 django_heroku.settings(locals())
