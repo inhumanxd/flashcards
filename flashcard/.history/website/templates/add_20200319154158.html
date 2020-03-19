@@ -1,7 +1,7 @@
 {% extends 'Base.html' %}
 
-    {% block 'content' %}   
-    
+    {% block 'content' %}  
+        
         <div class="container text-center">
             {% if my_answer %}    
             <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
@@ -14,13 +14,13 @@
             
             <main role="main" class="inner cover">
             
-                <h1 class="display-3">Subtract</h1>  
+                <h1 class="display-3">Addition</h1>  
                 <br>
-                <h1>{{num1}} - {{num2}}</h1>
+                <h1>{{num1}} + {{num2}}</h1>
                 <br>
-                <form action="{% url 'subtract' %}" method="POST">
+                <form action="{% url 'add' %}" method="POST">
                     {% csrf_token %}
-                    <div class="form-group">
+                    <div class="form-group"></div>
                     <center>
                     <input type="text" class="form-control" name="answer" placeholder="Type your answer here...">
                     <input type="hidden" name="old_num1" value="{{num1}}"/>
@@ -33,5 +33,5 @@
           
             </main>
         </div>
-
+        
     {% endblock %}

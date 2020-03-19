@@ -7,7 +7,7 @@
         <h1 class="display-3">Dictionary</h1>  
         <br>
         
-        <form action="{% url 'dictionary' %}" method="POST">
+        <form action="{% url 'add' %}" method="POST">
             {% csrf_token %}
             <div class="form-group">
             <center>

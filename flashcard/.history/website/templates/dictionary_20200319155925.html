@@ -1,0 +1,80 @@
+{% extends 'Base.html' %}
+
+{% block 'content' %}   
+    
+<main role="main" class="inner cover">
+            
+  <h1 class="display-3">Dictionary</h1>  
+  <br>
+  <h1>{{num1}} + {{num2}}</h1>
+  <br>
+  <form action="{% url 'add' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+      <center>
+      <input type="text" class="form-control" name="answer" placeholder="Type your answer here...">
+      <input type="hidden" name="old_num1" value="{{num1}}"/>
+      <input type="hidden" name="old_num2" value="{{num2}}"/>
+      </center>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
+
+</main>
+    
+
+        <span class="d-block p-2 bg-dark text-white">
+            
+                <h1 class="display-4">Dictionary</h1>
+            
+        </span>
+        <div class="container">
+            <br>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="exampleInputEmail1">Enter a word to search its meaning:</label>
+                <input type="text" class="form-control" placeholder="Enter a word..." name="word">
+                
+                <br>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </form>
+        </div>
+      
+        
+          {% if output %}
+            <div class="card">
+              
+              <div class="card-header">
+                {{word}} 
+              </div>
+            </div>
+            
+                
+                {% for x in output %}
+                <BR>
+
+                  <div class="card">
+                    <div class="card-body">
+                      Definition: {{x.definition}}<br><br>
+                      
+                      {% if x.example %}
+                      Example: {{x.example}}
+                      {% endif %}
+                      
+                      <br>
+                    </div>
+                  </div>    
+                {% endfor %}
+                <br>
+            <div class="card">
+              
+              <div class="card-footer">
+                Bhavik Brahmbhatt 
+              </div>
+            </div>
+          {% endif %}
+     
+   
+{% endblock %}

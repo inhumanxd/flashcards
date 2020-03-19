@@ -1,10 +1,10 @@
 {% extends 'Base.html' %}
 
-    {% block 'content' %}   
-    
+    {% block 'content' %}  
+
         <div class="container text-center">
             {% if my_answer %}    
-            <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
+            <div style="color:black;"class="alert alert-light alert-dismissible fade show" role="alert">
                 {{ my_answer }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -14,11 +14,11 @@
             
             <main role="main" class="inner cover">
             
-                <h1 class="display-3">Subtract</h1>  
+                <h1 class="display-3">Multiplication</h1>  
                 <br>
-                <h1>{{num1}} - {{num2}}</h1>
+                <h1>{{num1}} x {{num2}}</h1>
                 <br>
-                <form action="{% url 'subtract' %}" method="POST">
+                <form action="{% url 'multiply' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                     <center>
@@ -32,6 +32,6 @@
                 </form>
           
             </main>
-        </div>
+        </div> 
 
     {% endblock %}

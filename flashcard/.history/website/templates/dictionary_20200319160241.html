@@ -7,7 +7,7 @@
         <h1 class="display-3">Dictionary</h1>  
         <br>
         
-        <form action="{% url 'dictionary' %}" method="POST">
+        <form action="{% url 'add' %}" method="POST">
             {% csrf_token %}
             <div class="form-group">
             <center>
@@ -22,11 +22,8 @@
         </form>
 
     </main>
-
-          <center>
     
-            <br>
-            {% if output %}
+          {% if output %}
             <div class="card">
               
               <div class="card-header">
@@ -58,7 +55,7 @@
               </div>
             </div>
           {% endif %}
-        </center>
+
 
      
    

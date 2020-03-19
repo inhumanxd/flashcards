@@ -14,11 +14,11 @@
             
             <main role="main" class="inner cover">
             
-                <h1 class="display-3">Subtract</h1>  
+                <h1 class="display-3">Addition</h1>  
                 <br>
-                <h1>{{num1}} - {{num2}}</h1>
+                <h1>{{num1}} + {{num2}}</h1>
                 <br>
-                <form action="{% url 'subtract' %}" method="POST">
+                <form action="{% url 'add' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group">
                     <center>
@@ -33,5 +33,5 @@
           
             </main>
         </div>
-
+        
     {% endblock %}

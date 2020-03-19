@@ -2,31 +2,40 @@
 
 {% block 'content' %}   
     
-    <main role="main" class="inner cover">
-                
-        <h1 class="display-3">Dictionary</h1>  
-        <br>
+<main role="main" class="inner cover">
+            
+  <h1 class="display-3">Dictionary</h1>  
+  <br>
+  
+  <form action="{% url 'add' %}" method="POST">
+      {% csrf_token %}
+      <div class="form-group">
+      <center>
         
-        <form action="{% url 'dictionary' %}" method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-            <center>
-              
-              <label for="exampleInputEmail1">Enter a word to search its meaning:</label>
-              <input type="text" class="form-control" placeholder="Enter a word..." name="word">
-              
-            </center>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-secondary">Submit</button>
-        </form>
+        <label for="exampleInputEmail1">Enter a word to search its meaning:</label>
+        <input type="text" class="form-control" placeholder="Enter a word..." name="word">
+        
+      </center>
+      </div>
+      <br>
+      <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
 
-    </main>
+</main>
 
-          <center>
-    
+        <div class="container">
             <br>
-            {% if output %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                
+                <br>
+                <button type="submit" class="btn btn-secondary">Submit</button>
+            </form>
+        </div>
+      
+        
+          {% if output %}
             <div class="card">
               
               <div class="card-header">
@@ -58,7 +67,7 @@
               </div>
             </div>
           {% endif %}
-        </center>
+
 
      
    
