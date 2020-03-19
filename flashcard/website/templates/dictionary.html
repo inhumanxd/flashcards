@@ -1,12 +1,13 @@
 {% extends 'Base.html' %}
 
 {% block 'content' %}   
-    <center>
+    
+    <div class="container text-center">
 
         <span class="d-block p-2 bg-dark text-white">
-            <center>
+            
                 <h1 class="display-4">Dictionary</h1>
-            </center>
+            
         </span>
         <div class="container">
             <br>
@@ -20,12 +21,46 @@
                 <button type="submit" class="btn btn-secondary">Submit</button>
             </form>
         </div>
-      </center>
+      
         
           {% if output %}
+            <div class="card">
+              
+              <div class="card-header">
+                {{word}} 
+              </div>
+            </div>
+            
+                
+                {% for x in output %}
+                <BR>
+
+                  <div class="card">
+                    <div class="card-body">
+                      Definition: {{x.definition}}<br><br>
+                      
+                      {% if x.example %}
+                      Example: {{x.example}}
+                      {% endif %}
+                      
+                      <br>
+                    </div>
+                  </div>    
+                {% endfor %}
+                <br>
+            <div class="card">
+              
+              <div class="card-footer">
+                Bhavik Brahmbhatt 
+              </div>
+            </div>
+          {% endif %}
+
+
+          <!-- {% if output %}
           <div class="card">
             <div class="card-header">
-               <center> {{word}} </center>
+                {{word}} 
             </div>
             <div class="card-body">
               <h5 class="card-title">
@@ -44,11 +79,12 @@
               
             </div>
             <div class="card-footer text-muted">
-              <center> Bhavik Brahmbhatt </center>
+               Bhavik Brahmbhatt 
             </div>
           </div>
         
-          {% endif %}
+          {% endif %} -->
     <br>
+    <div class="container text-center">
    
 {% endblock %}
